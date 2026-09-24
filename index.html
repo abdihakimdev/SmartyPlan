@@ -4,11 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SmaryPlan Education System</title>
+<meta name="description" content="SmaryPlan personal education and learning tracker.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-<div class="app-shell">
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="auth-brand"><i class="fa-solid fa-graduation-cap"></i><span>SmaryPlan</span></div>
+    <p class="auth-kicker">PERSONAL LEARNING SYSTEM</p>
+    <h1 id="authTitle">Welcome back</h1>
+    <p id="authSubtitle">Sign in to continue to your learning dashboard.</p>
+    <form id="loginForm" class="auth-form">
+      <label>Email<input id="loginEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required minlength="6" placeholder="••••••••"></label>
+      <button class="btn primary auth-submit" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
+    </form>
+    <form id="signupForm" class="auth-form hidden">
+      <label>Email<input id="signupEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label>Password<input id="signupPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"></label>
+      <label>Confirm Password<input id="signupConfirm" type="password" autocomplete="new-password" required minlength="6" placeholder="Repeat password"></label>
+      <button class="btn primary auth-submit" type="submit"><i class="fa-solid fa-user-plus"></i> Create account</button>
+    </form>
+    <div id="authMessage" class="auth-message" role="status"></div>
+    <button id="authToggle" class="auth-link" type="button">New here? Create an account</button>
+  </div>
+</div>
+
+<div id="appShell" class="app-shell hidden">
   <aside class="sidebar" id="sidebar">
     <div class="brand"><i class="fa-solid fa-graduation-cap"></i><span>SmaryPlan</span></div>
     <nav>
@@ -30,7 +53,11 @@
     <header class="topbar">
       <button class="icon-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="page-title"><strong id="pageTitle">Dashboard</strong><span id="pageSubtitle">Your learning overview</span></div>
-      <button class="icon-btn" id="darkBtn" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
+      <div class="topbar-user">
+        <span id="userEmail" class="user-email"></span>
+        <button class="icon-btn" id="darkBtn" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="icon-btn logout-btn" id="logoutBtn" title="Sign out"><i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
     </header>
 
     <main class="content">
@@ -118,6 +145,7 @@
     </main>
   </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
