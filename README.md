@@ -48,3 +48,11 @@ Hosted Supabase projects normally require email confirmation for new email/passw
 Open `index.html` in a modern browser or serve the folder from a simple local web server.
 
 The frontend contains only the Supabase publishable/anon key. Never put a Supabase `service_role` or secret key in browser code.
+
+## UI redesign (Smarty System look)
+- Navy sidebar with logo, green active pill; sticky blurred top bar
+- Dashboard hero, color-coded stat cards with icon tiles, rounded cards
+- Phosphor icons everywhere (nav, cards, buttons, toasts, checklists)
+- Pro dark mode (navy) with a sun/moon toggle; login screen in the Smarty dark style
+- Fully responsive: desktop sidebar, drawer on tablet/mobile
+- Structure, IDs, Supabase logic and RLS unchanged. Visible brand corrected to "SmartyPlan".

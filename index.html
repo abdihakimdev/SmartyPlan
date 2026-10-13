@@ -3,28 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmaryPlan Education System</title>
-<meta name="description" content="SmaryPlan personal education and learning tracker.">
+<title>SmartyPlan Education System</title>
+<meta name="description" content="SmartyPlan personal education and learning tracker.">
+<meta name="theme-color" content="#06182b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 <div id="authScreen" class="auth-screen">
   <div class="auth-card">
-    <div class="auth-brand"><i class="fa-solid fa-graduation-cap"></i><span>SmaryPlan</span></div>
+    <div class="auth-brand"><i class="ph-fill ph-graduation-cap"></i><span>Smarty<b>Plan</b></span></div>
     <p class="auth-kicker">PERSONAL LEARNING SYSTEM</p>
     <h1 id="authTitle">Welcome back</h1>
     <p id="authSubtitle">Sign in to continue to your learning dashboard.</p>
     <form id="loginForm" class="auth-form">
       <label>Email<input id="loginEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
       <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required minlength="6" placeholder="••••••••"></label>
-      <button class="btn primary auth-submit" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
+      <button class="btn primary auth-submit" type="submit"><i class="ph-bold ph-sign-in"></i> Sign in</button>
     </form>
     <form id="signupForm" class="auth-form hidden">
       <label>Email<input id="signupEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
       <label>Password<input id="signupPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"></label>
       <label>Confirm Password<input id="signupConfirm" type="password" autocomplete="new-password" required minlength="6" placeholder="Repeat password"></label>
-      <button class="btn primary auth-submit" type="submit"><i class="fa-solid fa-user-plus"></i> Create account</button>
+      <button class="btn primary auth-submit" type="submit"><i class="ph-bold ph-user-plus"></i> Create account</button>
     </form>
     <div id="authMessage" class="auth-message" role="status"></div>
     <button id="authToggle" class="auth-link" type="button">New here? Create an account</button>
@@ -33,17 +39,17 @@
 
 <div id="appShell" class="app-shell hidden">
   <aside class="sidebar" id="sidebar">
-    <div class="brand"><i class="fa-solid fa-graduation-cap"></i><span>SmaryPlan</span></div>
+    <div class="brand"><i class="ph-fill ph-graduation-cap"></i><span>Smarty<b>Plan</b></span></div>
     <nav>
-      <button class="nav-item active" data-page="dashboard"><i class="fa-solid fa-house"></i> Dashboard</button>
-      <button class="nav-item" data-page="courses"><i class="fa-solid fa-book-open"></i> Courses</button>
-      <button class="nav-item" data-page="today"><i class="fa-solid fa-calendar-day"></i> Today's Lessons</button>
-      <button class="nav-item" data-page="notes"><i class="fa-solid fa-note-sticky"></i> Lesson Notes</button>
-      <button class="nav-item" data-page="progress"><i class="fa-solid fa-chart-line"></i> Daily Progress</button>
-      <button class="nav-item" data-page="streak"><i class="fa-solid fa-fire"></i> Learning Streak</button>
-      <button class="nav-item" data-page="time"><i class="fa-solid fa-clock"></i> Time Tracking</button>
-      <button class="nav-item" data-page="goals"><i class="fa-solid fa-bullseye"></i> Learning Goals</button>
-      <button class="nav-item" data-page="check"><i class="fa-solid fa-square-check"></i> Daily Check</button>
+      <button class="nav-item active" data-page="dashboard"><i class="ph-fill ph-house"></i> Dashboard</button>
+      <button class="nav-item" data-page="courses"><i class="ph-fill ph-book-open-text"></i> Courses</button>
+      <button class="nav-item" data-page="today"><i class="ph-fill ph-calendar-check"></i> Today's Lessons</button>
+      <button class="nav-item" data-page="notes"><i class="ph-fill ph-note"></i> Lesson Notes</button>
+      <button class="nav-item" data-page="progress"><i class="ph-fill ph-chart-line-up"></i> Daily Progress</button>
+      <button class="nav-item" data-page="streak"><i class="ph-fill ph-fire"></i> Learning Streak</button>
+      <button class="nav-item" data-page="time"><i class="ph-fill ph-clock"></i> Time Tracking</button>
+      <button class="nav-item" data-page="goals"><i class="ph-fill ph-target"></i> Learning Goals</button>
+      <button class="nav-item" data-page="check"><i class="ph-fill ph-check-square"></i> Daily Check</button>
     </nav>
   </aside>
 
@@ -51,12 +57,12 @@
 
   <section class="main">
     <header class="topbar">
-      <button class="icon-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+      <button class="icon-btn menu-btn" id="menuBtn"><i class="ph-bold ph-list"></i></button>
       <div class="page-title"><strong id="pageTitle">Dashboard</strong><span id="pageSubtitle">Your learning overview</span></div>
       <div class="topbar-user">
         <span id="userEmail" class="user-email"></span>
-        <button class="icon-btn" id="darkBtn" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
-        <button class="icon-btn logout-btn" id="logoutBtn" title="Sign out"><i class="fa-solid fa-right-from-bracket"></i></button>
+        <button class="icon-btn" id="darkBtn" title="Dark mode"><i class="ph-bold ph-moon"></i></button>
+        <button class="icon-btn logout-btn" id="logoutBtn" title="Sign out"><i class="ph-bold ph-sign-out"></i></button>
       </div>
     </header>
 
@@ -65,25 +71,25 @@
       <section class="page active" id="page-dashboard">
         <div class="welcome"><div><h1>Learning Dashboard</h1><p>Track your courses, lessons, time and goals in one place.</p></div></div>
         <div class="stats-grid">
-          <div class="stat"><i class="fa-solid fa-book"></i><span>Total Courses</span><b id="dashCourses">0</b></div>
-          <div class="stat"><i class="fa-solid fa-list-check"></i><span>Lessons Completed</span><b id="dashLessons">0/0</b></div>
-          <div class="stat"><i class="fa-solid fa-chart-simple"></i><span>Overall Progress</span><b id="dashProgress">0%</b></div>
-          <div class="stat"><i class="fa-solid fa-fire"></i><span>Learning Streak</span><b id="dashStreak">0 days</b></div>
-          <div class="stat"><i class="fa-solid fa-clock"></i><span>Total Study Time</span><b id="dashTime">0m</b></div>
-          <div class="stat"><i class="fa-solid fa-bullseye"></i><span>Goals Completed</span><b id="dashGoals">0/0</b></div>
+          <div class="stat"><i class="ph-fill ph-books"></i><span>Total Courses</span><b id="dashCourses">0</b></div>
+          <div class="stat"><i class="ph-fill ph-list-checks"></i><span>Lessons Completed</span><b id="dashLessons">0/0</b></div>
+          <div class="stat"><i class="ph-fill ph-chart-bar"></i><span>Overall Progress</span><b id="dashProgress">0%</b></div>
+          <div class="stat"><i class="ph-fill ph-fire"></i><span>Learning Streak</span><b id="dashStreak">0 days</b></div>
+          <div class="stat"><i class="ph-fill ph-clock"></i><span>Total Study Time</span><b id="dashTime">0m</b></div>
+          <div class="stat"><i class="ph-fill ph-target"></i><span>Goals Completed</span><b id="dashGoals">0/0</b></div>
         </div>
         <div class="two-col">
-          <div class="card"><div class="card-head"><h3>Today's Lessons</h3><button class="text-btn" data-go="today">View all</button></div><div id="dashToday"></div></div>
-          <div class="card"><div class="card-head"><h3>Daily Check</h3><button class="text-btn" data-go="check">Open</button></div><div id="dashCheck"></div></div>
+          <div class="card"><div class="card-head"><h3><i class="ph-fill ph-calendar-check"></i> Today's Lessons</h3><button class="text-btn" data-go="today">View all</button></div><div id="dashToday"></div></div>
+          <div class="card"><div class="card-head"><h3><i class="ph-fill ph-check-square"></i> Daily Check</h3><button class="text-btn" data-go="check">Open</button></div><div id="dashCheck"></div></div>
         </div>
-        <div class="card"><div class="card-head"><h3>Course Progress</h3></div><div id="dashCoursesList"></div></div>
+        <div class="card"><div class="card-head"><h3><i class="ph-fill ph-chart-line-up"></i> Course Progress</h3></div><div id="dashCoursesList"></div></div>
       </section>
 
       <!-- COURSES -->
       <section class="page" id="page-courses">
-        <div class="section-title"><div><h1>Courses</h1><p>Register a course and define exactly how many lessons it contains.</p></div></div>
+        <div class="section-title"><div><h1><i class="ph-fill ph-book-open-text"></i> Courses</h1><p>Register a course and define exactly how many lessons it contains.</p></div></div>
         <div class="card">
-          <h3><i class="fa-solid fa-plus"></i> Register Course</h3>
+          <h3><i class="ph-fill ph-plus"></i> Register Course</h3>
           <form id="courseForm">
             <div class="form-grid">
               <div><label>Course Name</label><input id="courseName" required placeholder="e.g. JavaScript"></div>
@@ -94,15 +100,15 @@
               <div><label>Target Date</label><input id="targetDate" type="date"></div>
             </div>
             <div><label>Learning Goal</label><textarea id="courseGoal" rows="2" placeholder="What do you want to achieve?"></textarea></div>
-            <button class="btn primary" type="submit"><i class="fa-solid fa-save"></i> Create Course</button>
+            <button class="btn primary" type="submit"><i class="ph-bold ph-floppy-disk"></i> Create Course</button>
           </form>
         </div>
-        <div class="card"><div class="card-head"><h3>My Courses</h3></div><div id="courseList" class="course-grid"></div></div>
+        <div class="card"><div class="card-head"><h3><i class="ph-fill ph-books"></i> My Courses</h3></div><div id="courseList" class="course-grid"></div></div>
       </section>
 
       <!-- TODAY -->
       <section class="page" id="page-today">
-        <div class="section-title"><div><h1>Today's Lessons</h1><p>Choose a course and record what you studied today.</p></div></div>
+        <div class="section-title"><div><h1><i class="ph-fill ph-calendar-check"></i> Today's Lessons</h1><p>Choose a course and record what you studied today.</p></div></div>
         <div class="card">
           <form id="lessonForm">
             <div class="form-grid">
@@ -119,29 +125,29 @@
               <label><input type="checkbox" id="quizDone"> Quiz completed</label>
               <label><input type="checkbox" id="lessonDone" checked> Lesson completed</label>
             </div>
-            <button class="btn primary" type="submit"><i class="fa-solid fa-check"></i> Save Today's Lesson</button>
+            <button class="btn primary" type="submit"><i class="ph-bold ph-check"></i> Save Today's Lesson</button>
           </form>
         </div>
-        <div class="card"><div class="card-head"><h3>Lesson History</h3></div><div id="lessonHistory"></div></div>
+        <div class="card"><div class="card-head"><h3><i class="ph-fill ph-clock-counter-clockwise"></i> Lesson History</h3></div><div id="lessonHistory"></div></div>
       </section>
 
       <!-- NOTES -->
-      <section class="page" id="page-notes"><div class="section-title"><div><h1>Lesson Notes</h1><p>All your lesson notes in one place.</p></div></div><div class="card"><div id="notesList"></div></div></section>
+      <section class="page" id="page-notes"><div class="section-title"><div><h1><i class="ph-fill ph-note"></i> Lesson Notes</h1><p>All your lesson notes in one place.</p></div></div><div class="card"><div id="notesList"></div></div></section>
 
       <!-- PROGRESS -->
-      <section class="page" id="page-progress"><div class="section-title"><div><h1>Daily Progress</h1><p>See what you completed each day.</p></div></div><div class="card"><div id="dailyProgressList"></div></div></section>
+      <section class="page" id="page-progress"><div class="section-title"><div><h1><i class="ph-fill ph-chart-line-up"></i> Daily Progress</h1><p>See what you completed each day.</p></div></div><div class="card"><div id="dailyProgressList"></div></div></section>
 
       <!-- STREAK -->
-      <section class="page" id="page-streak"><div class="section-title"><div><h1>Learning Streak</h1><p>Keep learning consistently.</p></div></div><div class="streak-card"><i class="fa-solid fa-fire"></i><strong id="bigStreak">0</strong><span>consecutive learning days</span></div><div class="card"><h3>Learning Activity</h3><div id="activityList"></div></div></section>
+      <section class="page" id="page-streak"><div class="section-title"><div><h1><i class="ph-fill ph-fire"></i> Learning Streak</h1><p>Keep learning consistently.</p></div></div><div class="streak-card"><i class="ph-fill ph-fire"></i><strong id="bigStreak">0</strong><span>consecutive learning days</span></div><div class="card"><h3><i class="ph-fill ph-pulse"></i> Learning Activity</h3><div id="activityList"></div></div></section>
 
       <!-- TIME -->
-      <section class="page" id="page-time"><div class="section-title"><div><h1>Time Tracking</h1><p>Track the time you spend learning.</p></div></div><div class="stats-grid compact"><div class="stat"><span>Today</span><b id="timeToday">0m</b></div><div class="stat"><span>This Week</span><b id="timeWeek">0m</b></div><div class="stat"><span>Total</span><b id="timeTotal">0m</b></div></div><div class="card"><div id="timeList"></div></div></section>
+      <section class="page" id="page-time"><div class="section-title"><div><h1><i class="ph-fill ph-clock"></i> Time Tracking</h1><p>Track the time you spend learning.</p></div></div><div class="stats-grid compact"><div class="stat"><span>Today</span><b id="timeToday">0m</b></div><div class="stat"><span>This Week</span><b id="timeWeek">0m</b></div><div class="stat"><span>Total</span><b id="timeTotal">0m</b></div></div><div class="card"><div id="timeList"></div></div></section>
 
       <!-- GOALS -->
-      <section class="page" id="page-goals"><div class="section-title"><div><h1>Learning Goals</h1><p>Course goals and milestones.</p></div></div><div class="card"><div id="goalsList"></div></div></section>
+      <section class="page" id="page-goals"><div class="section-title"><div><h1><i class="ph-fill ph-target"></i> Learning Goals</h1><p>Course goals and milestones.</p></div></div><div class="card"><div id="goalsList"></div></div></section>
 
       <!-- DAILY CHECK -->
-      <section class="page" id="page-check"><div class="section-title"><div><h1>Daily Check</h1><p>Complete your learning routine for today.</p></div></div><div class="card check-card"><h3 id="checkDate"></h3><label><input type="checkbox" id="checkStudy"> I studied today</label><label><input type="checkbox" id="checkPractice"> I practiced</label><label><input type="checkbox" id="checkReview"> I reviewed my previous lesson</label><label><input type="checkbox" id="checkNotes"> I wrote lesson notes</label><button class="btn primary" id="saveCheck">Save Daily Check</button></div></section>
+      <section class="page" id="page-check"><div class="section-title"><div><h1><i class="ph-fill ph-check-square"></i> Daily Check</h1><p>Complete your learning routine for today.</p></div></div><div class="card check-card"><h3 id="checkDate"></h3><label><input type="checkbox" id="checkStudy"> I studied today</label><label><input type="checkbox" id="checkPractice"> I practiced</label><label><input type="checkbox" id="checkReview"> I reviewed my previous lesson</label><label><input type="checkbox" id="checkNotes"> I wrote lesson notes</label><button class="btn primary" id="saveCheck">Save Daily Check</button></div></section>
     </main>
   </section>
 </div>

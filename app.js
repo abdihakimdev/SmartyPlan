@@ -51,7 +51,7 @@ function toast(message, type = "success") {
   if (old) old.remove();
   const el = document.createElement("div");
   el.className = `toast ${type}`;
-  el.innerHTML = `<i class="fa-solid ${type === "error" ? "fa-circle-exclamation" : "fa-circle-check"}"></i><span>${esc(message)}</span>`;
+  el.innerHTML = `<i class="ph-fill ${type === "error" ? "ph-warning-circle" : "ph-check-circle"}"></i><span>${esc(message)}</span>`;
   document.body.appendChild(el);
   setTimeout(() => el.remove(), 3600);
 }
@@ -67,7 +67,7 @@ function setLoading(button, loading, text) {
   if (loading) {
     button.dataset.originalText = button.innerHTML;
     button.disabled = true;
-    button.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${text}`;
+    button.innerHTML = `<i class="ph-bold ph-spinner ph-spin"></i> ${text}`;
   } else {
     button.disabled = false;
     button.innerHTML = button.dataset.originalText || text;
@@ -234,8 +234,8 @@ function closeMenu() {
 
 function setDarkIcon() {
   $("darkBtn").innerHTML = document.body.classList.contains("dark")
-    ? '<i class="fa-solid fa-sun"></i>'
-    : '<i class="fa-solid fa-moon"></i>';
+    ? '<i class="ph-bold ph-sun"></i>'
+    : '<i class="ph-bold ph-moon"></i>';
 }
 $("darkBtn").onclick = () => {
   document.body.classList.toggle("dark");
@@ -376,10 +376,10 @@ function renderDashboard() {
 
   const ch = db.checks[today()] || {};
   $("dashCheck").innerHTML = `
-    <p>${ch.study ? "☑" : "☐"} Studied today</p>
-    <p>${ch.practice ? "☑" : "☐"} Practiced</p>
-    <p>${ch.review ? "☑" : "☐"} Reviewed previous lesson</p>
-    <p>${ch.notes ? "☑" : "☐"} Wrote notes</p>`;
+    <p>${ch.study ? '<i class="ph-fill ph-check-circle on"></i>' : '<i class="ph ph-circle off"></i>'} Studied today</p>
+    <p>${ch.practice ? '<i class="ph-fill ph-check-circle on"></i>' : '<i class="ph ph-circle off"></i>'} Practiced</p>
+    <p>${ch.review ? '<i class="ph-fill ph-check-circle on"></i>' : '<i class="ph ph-circle off"></i>'} Reviewed previous lesson</p>
+    <p>${ch.notes ? '<i class="ph-fill ph-check-circle on"></i>' : '<i class="ph ph-circle off"></i>'} Wrote notes</p>`;
 
   $("dashCoursesList").innerHTML = db.courses.length
     ? db.courses.map(courseHTML).join("")
@@ -395,8 +395,8 @@ function courseHTML(c) {
     <small>${n}/${c.total_lessons} lessons completed</small>
     ${c.goal ? `<p><small>Goal: ${esc(c.goal)}</small></p>` : ""}
     <div class="course-actions">
-      <button class="btn primary small" onclick="openCourse('${c.id}')">Open</button>
-      <button class="btn secondary small" onclick="deleteCourse('${c.id}')">Delete</button>
+      <button class="btn primary small" onclick="openCourse('${c.id}')"><i class="ph-bold ph-arrow-square-out"></i> Open</button>
+      <button class="btn secondary small danger" onclick="deleteCourse('${c.id}')"><i class="ph-bold ph-trash"></i> Delete</button>
     </div>
   </div>`;
 }
@@ -404,9 +404,9 @@ function courseHTML(c) {
 function lessonHTML(l) {
   return `<div class="lesson">
     <div class="day">Day ${l.day}</div>
-    <div><h4>${l.done ? "☑" : "☐"} ${esc(l.title)}</h4>
+    <div><h4>${l.done ? '<i class="ph-fill ph-check-circle on"></i>' : '<i class="ph ph-circle off"></i>'} ${esc(l.title)}</h4>
     <p>${esc(l.topic || "No topic")} · ${l.lesson_date} · ${formatMin(l.minutes)} ${l.practice ? "· Practice ✓" : ""} ${l.quiz ? "· Quiz ✓" : ""}</p></div>
-    <button class="btn secondary small" onclick="deleteLesson('${l.id}')">Delete</button>
+    <button class="btn secondary small danger" onclick="deleteLesson('${l.id}')"><i class="ph-bold ph-trash"></i> Delete</button>
   </div>`;
 }
 
